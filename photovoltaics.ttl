@@ -12,16 +12,16 @@
 @base <http://onto.onto-ns.com/domain-photovoltaics/photovoltaics> .
 
 <http://onto.onto-ns.com/domain-photovoltaics/photovoltaics> rdf:type owl:Ontology ;
-                                                             owl:versionIRI <http://onto.onto-ns.com/domain-photovoltaics/0.0.1/photovoltaics/photovoltaics.ttl> ;
-                                                             owl:imports <https://big-map.github.io/BattINFO/ontology/electrochemistry/0.3.0/electrochemistry/electrochemistry.ttl> ;
-                                                             dcterms:abstract """A toplevel photovoltaics domain ontology based on EMMO.
+                                                              owl:versionIRI <http://onto.onto-ns.com/domain-photovoltaics/0.0.1/photovoltaics/photovoltaics.ttl> ;
+                                                              owl:imports <https://big-map.github.io/BattINFO/ontology/electrochemistry/0.3.0/electrochemistry/electrochemistry.ttl> ;
+                                                              dcterms:abstract """A toplevel photovoltaics domain ontology based on EMMO.
 
 This file is intended to contain information on the whole domain of photovoltaics.
 It should be on a top-level.
 
 Released under the Creative Commons license Attribution 4.0 International (CC BY 4.0).""" ;
-                                                                dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                                                                owl:versionInfo "0.0.1" .
+                                                              dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                                                              owl:versionInfo "0.0.1" .
 
 #################################################################
 #    Annotation properties
@@ -33,3 +33,169 @@ dcterms:abstract rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/license
 dcterms:license rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLObjectProperty_6372f51d_803a_485c_8020_235ca08a6bb5
+:OWLObjectProperty_6372f51d_803a_485c_8020_235ca08a6bb5 rdf:type owl:ObjectProperty ;
+                                                        rdfs:subPropertyOf emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                        rdfs:label "hasLayer"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://onto.onto-ns.com/domain-photovoltaics#PhotovoltaicCell
+:PhotovoltaicCell rdf:type owl:Class ;
+                  rdfs:subClassOf electrochemistry:EMMO_6f2c88c9_5c04_4953_a298_032cc3ab9b77 ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OWLObjectProperty_6372f51d_803a_485c_8020_235ca08a6bb5 ;
+                                    owl:someValuesFrom :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
+                                  ] ;
+                  emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Something"@en ;
+                  skos:altLabel "SolarCell"@en ;
+                  skos:prefLabel "PhotovoltaicCell"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#PhotovoltaicDevice
+:PhotovoltaicDevice rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:EMMO_494b372c_cfdf_47d3_a4de_5e037c540de8 ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A device manufactured to convert photons into electrons"@en ;
+                    skos:prefLabel "PhotovoltaicDevice"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#PhotovoltaicModule
+:PhotovoltaicModule rdf:type owl:Class ;
+                    rdfs:subClassOf :PhotovoltaicDevice ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty emmo:EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                      owl:someValuesFrom :PhotovoltaicCell
+                                    ] ;
+                    emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A collection of soloar cells"@en ;
+                    skos:prefLabel "PhotovoltaicModule"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_0d8ea662_2e73_4e57_9b0c_92be90d6bae0
+:OWLClass_0d8ea662_2e73_4e57_9b0c_92be90d6bae0 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:label "PhotovoltaicSubstrate"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1
+:OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:label "AbsorberLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_2942102d_1cca_4de8_bd6e_55eb5273d558
+:OWLClass_2942102d_1cca_4de8_bd6e_55eb5273d558 rdf:type owl:Class ;
+                                               rdfs:subClassOf :PhotovoltaicDevice ;
+                                               rdfs:label "PhotovoltaicCable"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_4681d657_665d_4158_be1b_e0161742d829
+:OWLClass_4681d657_665d_4158_be1b_e0161742d829 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:label "RecombinationLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_4a17586e_2e27_4218_8ce8_f1750a4c10dd
+:OWLClass_4a17586e_2e27_4218_8ce8_f1750a4c10dd rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:label "PhotovoltaicCellStack"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
+:OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f
+                                                               ] ;
+                                               rdfs:label "PhotovoltaicCellLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_70442f2a_89f9_4cc0_b795_e5f13a1518c8
+:OWLClass_70442f2a_89f9_4cc0_b795_e5f13a1518c8 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:label "HoleTransportLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f
+:OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:label "ElectronTransportLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_88834fc3_9f29_401a_9e47_20b1f82c682d
+:OWLClass_88834fc3_9f29_401a_9e47_20b1f82c682d rdf:type owl:Class ;
+                                               rdfs:subClassOf :PhotovoltaicDevice ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                                                 owl:someValuesFrom :PhotovoltaicModule
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                                                 owl:someValuesFrom :OWLClass_2942102d_1cca_4de8_bd6e_55eb5273d558
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                                                 owl:someValuesFrom :OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e
+                                                               ] ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A system converting solar energy into alternating current" ;
+                                               rdfs:label "PhotovoltaicSystem"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_8a20d1db_072e_4dec_b834_ac861876bafb
+:OWLClass_8a20d1db_072e_4dec_b834_ac861876bafb rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:label "BufferLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_8c479375_8247_4078_a295_3d5d9e6fd63e
+:OWLClass_8c479375_8247_4078_a295_3d5d9e6fd63e rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_0d8ea662_2e73_4e57_9b0c_92be90d6bae0 ;
+                                               rdfs:label "Glass"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_96b96541_6a1a_47d3_b602_722a53d74096
+:OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass emmo:EMMO_43003c86_9d15_433b_9789_ee2940920656
+                                                               ] ;
+                                               rdfs:label "Layer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_a78364e7_c10c_4cb9_8415_889b8e8e7b25
+:OWLClass_a78364e7_c10c_4cb9_8415_889b8e8e7b25 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:label "PhotovoltaicCellSubstrate"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac
+:OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:label "PhotovoltaicEncapsulant"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e
+:OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e rdf:type owl:Class ;
+                                               rdfs:subClassOf :PhotovoltaicDevice ;
+                                               rdfs:label "PhotovoltaicInverter"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f
+:OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_194100e1_e11a_4b7c_bb5a_171655679fc8 ;
+                                               rdfs:label "Roughness"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
