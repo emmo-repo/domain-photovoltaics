@@ -35,6 +35,10 @@ dcterms:abstract rdf:type owl:AnnotationProperty .
 dcterms:license rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -55,6 +59,15 @@ dcterms:license rdf:type owl:AnnotationProperty .
                                                rdfs:label "PhotovoltaicSubstrate"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a
+:OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The total cell area in cm2. The total area is defined as the area that would provide
+photovoltaic performance when illuminated without any shading, i.e. in practice the geometric overlap
+between the top and bottom contact."""@en ;
+                                               rdfs:label "CellAreaTotal"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1
 :OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
@@ -65,6 +78,12 @@ dcterms:license rdf:type owl:AnnotationProperty .
 :OWLClass_2942102d_1cca_4de8_bd6e_55eb5273d558 rdf:type owl:Class ;
                                                rdfs:subClassOf :PhotovoltaicDevice ;
                                                rdfs:label "PhotovoltaicCable"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_39c931be_118d_4877_92f3_1108729f7136
+:OWLClass_39c931be_118d_4877_92f3_1108729f7136 rdf:type owl:Class ;
+                                               rdfs:subClassOf :PhotovoltaicCell ;
+                                               rdfs:label "PerovskitePhotovoltaicCell"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4681d657_665d_4158_be1b_e0161742d829
@@ -79,14 +98,17 @@ dcterms:license rdf:type owl:AnnotationProperty .
                                                rdfs:label "PhotovoltaicCellStack"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1
+:OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "TRUE if the cell flexible and bendable."@en ;
+                                               rdfs:label "CellFlexible"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
 :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
-                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass :OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f
-                                                               ] ;
+                                                               <http://org.semanticweb.owlapi/error#Error2> ;
                                                rdfs:label "PhotovoltaicCellLayer"@en .
 
 
@@ -96,10 +118,26 @@ dcterms:license rdf:type owl:AnnotationProperty .
                                                rdfs:label "HoleTransportLayer"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_79d4a65d_714e_4136_ae60_847dd700187d
+:OWLClass_79d4a65d_714e_4136_ae60_847dd700187d rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The effective area of the cell during IV and stability measurements under illumination. If
+measured with a mask, this corresponds to the area of the hole in the mask. Otherwise this area is the
+same as the total cell area."""@en ;
+                                               rdfs:label "CellAreaMeasured"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f
 :OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
                                                rdfs:label "ElectronTransportLayer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_85265eaf_168d_4501_8893_0a3a39a6967e
+:OWLClass_85265eaf_168d_4501_8893_0a3a39a6967e rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The average visible transmittance in the wavelength range stated in the next field. In %"@en ;
+                                               rdfs:label "SemiTransparentAVT"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_88834fc3_9f29_401a_9e47_20b1f82c682d
@@ -136,12 +174,29 @@ dcterms:license rdf:type owl:AnnotationProperty .
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_96b96541_6a1a_47d3_b602_722a53d74096
 :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty emmo:EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5 ;
-                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass emmo:EMMO_43003c86_9d15_433b_9789_ee2940920656
-                                                               ] ;
+                                                               <http://org.semanticweb.owlapi/error#Error1> ;
                                                rdfs:label "Layer"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_9fee3249_3e8c_4fc9_88fa_bbda1212621a
+:OWLClass_9fee3249_3e8c_4fc9_88fa_bbda1212621a rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
+                                               rdfs:label "ThinFilmDeposition"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a077e2ae_ded6_428d_b41d_b787769ce89b
+:OWLClass_a077e2ae_ded6_428d_b41d_b787769ce89b rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The minimum bending radius possible without degrading the cells performance"@en ;
+                                               rdfs:label "CellFlexibleMinBendingRadius"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a75df932_383c_453c_947e_685929ddb44c
+:OWLClass_a75df932_383c_453c_947e_685929ddb44c rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Does not discriminate between different levels of transparency. In practice this is True for any
+cell that does not have metal contacts."""@en ;
+                                               rdfs:label "SemiTransparent"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a78364e7_c10c_4cb9_8415_889b8e8e7b25
@@ -156,6 +211,20 @@ dcterms:license rdf:type owl:AnnotationProperty .
                                                rdfs:label "PhotovoltaicEncapsulant"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_cb8e569c_7305_4096_9b24_176c598ef798
+:OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_79751276_b2d0_4e2f_bbd4_99d412f43d55 ;
+                                               rdfs:label "PhotovoltaicQuantity"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e
+:OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The number of individual solar cells, or pixels, on the substrate on which the reported cell is
+made"""@en ;
+                                               rdfs:label "NumberOfCellsPerSubstrate"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e
 :OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e rdf:type owl:Class ;
                                                rdfs:subClassOf :PhotovoltaicDevice ;
@@ -166,6 +235,13 @@ dcterms:license rdf:type owl:AnnotationProperty .
 :OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_43003c86_9d15_433b_9789_ee2940920656 ;
                                                rdfs:label "Roughness"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_fb96f3fa_8004_44a2_8bd4_bcb0a2c11123
+:OWLClass_fb96f3fa_8004_44a2_8bd4_bcb0a2c11123 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "the wavelength range under which the average visible transmittance is determined"@en ;
+                                               rdfs:label "SemiTransparentWavelengthRange"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#PhotovoltaicCell
@@ -194,84 +270,72 @@ dcterms:license rdf:type owl:AnnotationProperty .
                     skos:prefLabel "PhotovoltaicModule"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a
-:OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The total cell area in cm2. The total area is defined as the area that would provide
-photovoltaic performance when illuminated without any shading, i.e. in practice the geometric overlap
-between the top and bottom contact."""@en ;
-                                               rdfs:label "CellAreaTotal"@en .
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_4b5af65e_dbb0_4ba2_a306_342877e3fdc5
+:OWLClass_4b5af65e_dbb0_4ba2_a306_342877e3fdc5 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "" ;
+                                               rdfs:label "PerovskiteLayer"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_39c931be_118d_4877_92f3_1108729f7136
-:OWLClass_39c931be_118d_4877_92f3_1108729f7136 rdf:type owl:Class ;
-                                               rdfs:subClassOf :PhotovoltaicCell ;
-                                               rdfs:label "PerovskitePhotovoltaicCell"@en .
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3
+:OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteBSiteCation"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1
-:OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "TRUE if the cell flexible and bendable."@en ;
-                                               rdfs:label "CellFlexible"@en .
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732
+:OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteASiteCation"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_79d4a65d_714e_4136_ae60_847dd700187d
-:OWLClass_79d4a65d_714e_4136_ae60_847dd700187d rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The effective area of the cell during IV and stability measurements under illumination. If
-measured with a mask, this corresponds to the area of the hole in the mask. Otherwise this area is the
-same as the total cell area."""@en ;
-                                               rdfs:label "CellAreaMeasured"@en .
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_d966be85_d997_489a_995d_a20e0f99597a
+:OWLClass_d966be85_d997_489a_995d_a20e0f99597a rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteXSiteAnion"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_85265eaf_168d_4501_8893_0a3a39a6967e
-:OWLClass_85265eaf_168d_4501_8893_0a3a39a6967e rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The average visible transmittance in the wavelength range stated in the next field. In %"@en ;
-                                               rdfs:label "SemiTransparentAVT"@en .
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_f5d02f24_0b93_4f43_83d1_56c1a6e8bd91
+:OWLClass_f5d02f24_0b93_4f43_83d1_56c1a6e8bd91 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_d966be85_d997_489a_995d_a20e0f99597a
+                                                               ] ;
+                                               emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A perovskite structure is formed by ABX3 compounds where the B-site cation is octahedrally coordinated to the X-site anion and these octahedra are all-corner sharing in a 3D network."@en ;
+                                               rdfs:label "PerovskiteMolecularEntity"@en .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :OWLClass_f5d02f24_0b93_4f43_83d1_56c1a6e8bd91 ;
+   owl:annotatedProperty emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 ;
+   owl:annotatedTarget "A perovskite structure is formed by ABX3 compounds where the B-site cation is octahedrally coordinated to the X-site anion and these octahedra are all-corner sharing in a 3D network."@en ;
+   dcterms:source "https://doi.org/10.1002/aenm.201802366"
+ ] .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_9fee3249_3e8c_4fc9_88fa_bbda1212621a
-:OWLClass_9fee3249_3e8c_4fc9_88fa_bbda1212621a rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_71d1c8f0_c6e3_44b5_a4b6_1b74ff35698a ;
-                                               rdfs:label "ThinFilmDeposition"@en .
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_a077e2ae_ded6_428d_b41d_b787769ce89b
-:OWLClass_a077e2ae_ded6_428d_b41d_b787769ce89b rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The minimum bending radius possible without degrading the cells performance"@en ;
-                                               rdfs:label "CellFlexibleMinBendingRadius"@en .
+###  http://org.semanticweb.owlapi/error#Error2
+<http://org.semanticweb.owlapi/error#Error2> rdf:type owl:Class .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_a75df932_383c_453c_947e_685929ddb44c
-:OWLClass_a75df932_383c_453c_947e_685929ddb44c rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Does not discriminate between different levels of transparency. In practice this is True for any
-cell that does not have metal contacts."""@en ;
-                                               rdfs:label "SemiTransparent"@en .
+[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
 
-
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_cb8e569c_7305_4096_9b24_176c598ef798
-:OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_79751276_b2d0_4e2f_bbd4_99d412f43d55 ;
-                                               rdfs:label "PhotovoltaicQuantity"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e
-:OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The number of individual solar cells, or pixels, on the substrate on which the reported cell is
-made"""@en ;
-                                               rdfs:label "NumberOfCellsPerSubstrate"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_fb96f3fa_8004_44a2_8bd4_bcb0a2c11123
-:OWLClass_fb96f3fa_8004_44a2_8bd4_bcb0a2c11123 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "the wavelength range under which the average visible transmittance is determined"@en ;
-                                               rdfs:label "SemiTransparentWavelengthRange"@en .
-
+[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
