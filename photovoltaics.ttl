@@ -133,7 +133,11 @@ between the top and bottom contact."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4a17586e_2e27_4218_8ce8_f1750a4c10dd
 :OWLClass_4a17586e_2e27_4218_8ce8_f1750a4c10dd rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :PhotovoltaicCell
+                                                               ] ;
                                                rdfs:label "PhotovoltaicCellStack"@en .
 
 
@@ -153,7 +157,12 @@ between the top and bottom contact."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
 :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 ;
+                                               rdfs:subClassOf :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f
+                                                               ] ;
                                                rdfs:label "PhotovoltaicCellLayer"@en .
 
 
@@ -261,7 +270,17 @@ same as the total cell area."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_96b96541_6a1a_47d3_b602_722a53d74096
 :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass emmo:EMMO_37bf7e74_6713_47fb_a9fa_93482526c84d
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+                                                               ] ;
                                                rdfs:label "Layer"@en .
 
 
@@ -421,7 +440,17 @@ made"""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#PhotovoltaicCell
 :PhotovoltaicCell rdf:type owl:Class ;
-                  rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
+                  rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+                                  ] ;
                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Something"@en ;
                   skos:altLabel "SolarCell"@en ;
                   skos:prefLabel "PhotovoltaicCell"@en .
