@@ -71,6 +71,16 @@ owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
                                                                  owl:someValuesFrom :OWLClass_dd700e46_47c7_4969_97b5_bb18c6cf9b94
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass emmo:EMMO_62273272_4cec_4168_bc7b_448f57feaba6
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass electrochemistry:EMMO_bea04148_10d9_4eda_9cd5_8f609d7e9ff8
                                                                ] ;
                                                rdfs:label "CurrentVoltageMeasurement"@en ;
                                                skos:altLabel "JVMeasurement"@en .
@@ -127,6 +137,13 @@ between the top and bottom contact."""@en ;
                                                rdfs:label "PhotovoltaicCellStack"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4b5af65e_dbb0_4ba2_a306_342877e3fdc5
+:OWLClass_4b5af65e_dbb0_4ba2_a306_342877e3fdc5 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "" ;
+                                               rdfs:label "PerovskiteLayer"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1
 :OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1 rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
@@ -145,6 +162,12 @@ between the top and bottom contact."""@en ;
                                                rdfs:subClassOf :OWLClass_6bf1dadd_977b_46ea_9185_358d423dcbc7 ;
                                                rdfs:label "ExternalQuantumEfficiencyMeasurement"@en ;
                                                skos:altLabel "EQEMeasurement"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3
+:OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteBSiteCation"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_6bed87e0_aa18_4b76_9c3b_7a691840fdf2
@@ -287,6 +310,12 @@ cell that does not have metal contacts."""@en ;
                                                rdfs:label "Substrate"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732
+:OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteASiteCation"@en .
+
+
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac
 :OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
@@ -295,7 +324,17 @@ cell that does not have metal contacts."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8
 :OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ;
+                                               rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass emmo:EMMO_62273272_4cec_4168_bc7b_448f57feaba6
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass electrochemistry:EMMO_bea04148_10d9_4eda_9cd5_8f609d7e9ff8
+                                                               ] ;
                                                rdfs:label "Storing"@en .
 
 
@@ -311,6 +350,12 @@ cell that does not have metal contacts."""@en ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The total area in cm 2 of the substrate over which the perovskite is deposited. This may be
 significantly larger than the cell area"""@en ;
                                                rdfs:label "SubstrateArea"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_d966be85_d997_489a_995d_a20e0f99597a
+:OWLClass_d966be85_d997_489a_995d_a20e0f99597a rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
+                                               rdfs:label "PerovskiteXSiteAnion"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e
@@ -337,6 +382,28 @@ made"""@en ;
 :OWLClass_f480d527_46a2_44f4_b014_66f9602bb977 rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_85265eaf_168d_4501_8893_0a3a39a6967e ;
                                                rdfs:label "SemiTransparentAVTWavelengthRangeMax"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_f5d02f24_0b93_4f43_83d1_56c1a6e8bd91
+:OWLClass_f5d02f24_0b93_4f43_83d1_56c1a6e8bd91 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_5e9ab6fb_ea4a_444a_aa22_46ce6ec6fdc3
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
+                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass :OWLClass_d966be85_d997_489a_995d_a20e0f99597a
+                                                               ] ;
+                                               emmo:EMMO_70fe84ff_99b6_4206_a9fc_9a8931836d84 "A perovskite structure is formed by ABX3 compounds where the B-site cation is octahedrally coordinated to the X-site anion and these octahedra are all-corner sharing in a 3D network."@en ;
+                                               rdfs:label "PerovskiteMolecularEntity"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_f63b9b24_9e70_4904_9dbc_47ae149d569f
@@ -377,32 +444,5 @@ made"""@en ;
                     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "A collection of soloar cells"@en ;
                     skos:prefLabel "PhotovoltaicModule"@en .
 
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
