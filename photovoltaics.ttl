@@ -49,16 +49,31 @@ owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
                                                         rdfs:label "hasProcess"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLObjectProperty_6372f51d_803a_485c_8020_235ca08a6bb5
-:OWLObjectProperty_6372f51d_803a_485c_8020_235ca08a6bb5 rdf:type owl:ObjectProperty ;
-                                                        rdfs:subPropertyOf emmo:EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec ;
-                                                        rdfs:label "hasLayer"@en .
-
-
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578
 :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 rdf:type owl:ObjectProperty ;
                                                         rdfs:subPropertyOf :OWLObjectProperty_292c441f_c3a5_4e34_aa57_1250e5bec884 ;
                                                         rdfs:label "hasIntentionalProcess"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLDataProperty_a6bbbc11_8b31_4e15_b80e_edac90596f73
+:OWLDataProperty_a6bbbc11_8b31_4e15_b80e_edac90596f73 rdf:type owl:DatatypeProperty ;
+                                                      rdfs:subPropertyOf owl:topDataProperty ;
+                                                      rdfs:range xsd:boolean ;
+                                                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Boolean Property of an phtovoltaic cell. TRUE if the cell flexible and bendable."@en ;
+                                                      skos:prefLabel "hasFlexibility"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLDataProperty_e7554a3e_2977_424c_b791_ff65e0e78790
+:OWLDataProperty_e7554a3e_2977_424c_b791_ff65e0e78790 rdf:type owl:DatatypeProperty ;
+                                                      rdfs:range xsd:boolean ;
+                                                      emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Boolean property of an phtovoltaic cell.
+TRUE if the cell is semi-transparent, which usually is the case when there are no thick
+completely covering metal electrodes."""@en ;
+                                                      skos:prefLabel "hasSemiTransparency"@en .
 
 
 #################################################################
@@ -69,18 +84,20 @@ owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
 :OWLClass_03086f3e_59be_48a9_8552_a4db55b7547f rdf:type owl:Class ;
                                                rdfs:subClassOf :OWLClass_6bf1dadd_977b_46ea_9185_358d423dcbc7 ,
                                                                [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
-                                                                 owl:someValuesFrom :OWLClass_dd700e46_47c7_4969_97b5_bb18c6cf9b94
+                                                                 owl:onProperty emmo:EMMO_16b510a6_0584_4134_bdb6_3bc185c17860 ;
+                                                                 owl:someValuesFrom emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
                                                                ] ,
                                                                [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass emmo:EMMO_62273272_4cec_4168_bc7b_448f57feaba6
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :PhotovoltaicCell
                                                                ] ,
                                                                [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass electrochemistry:EMMO_bea04148_10d9_4eda_9cd5_8f609d7e9ff8
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558 ;
+                                                                 owl:someValuesFrom :OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8
                                                                ] ;
                                                rdfs:label "CurrentVoltageMeasurement"@en ;
                                                skos:altLabel "JVMeasurement"@en .
@@ -88,7 +105,8 @@ owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a
 :OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               rdfs:subClassOf emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890 ,
+                                                               :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The total cell area in cm2. The total area is defined as the area that would provide
 photovoltaic performance when illuminated without any shading, i.e. in practice the geometric overlap
 between the top and bottom contact."""@en ;
@@ -97,7 +115,11 @@ between the top and bottom contact."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1
 :OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom :OWLClass_1a274dcd_53f0_4e7a_bc75_b4da1c4e3aa5
+                                                               ] ;
                                                rdfs:label "AbsorberLayer"@en .
 
 
@@ -138,7 +160,7 @@ between the top and bottom contact."""@en ;
                                                                  owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
                                                                  owl:someValuesFrom :PhotovoltaicCell
                                                                ] ;
-                                               rdfs:label "PhotovoltaicCellStack"@en .
+                                               skos:prefLabel "PhotovoltaicCellStack"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4b5af65e_dbb0_4ba2_a306_342877e3fdc5
@@ -146,13 +168,6 @@ between the top and bottom contact."""@en ;
                                                rdfs:subClassOf :OWLClass_21244d8c_3b6f_4194_80f4_4e51bafcb8f1 ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "" ;
                                                rdfs:label "PerovskiteLayer"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1
-:OWLClass_4ed2365d_1363_4cfc_a997_8e94f2118ce1 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "TRUE if the cell flexible and bendable."@en ;
-                                               rdfs:label "CellFlexible"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
@@ -179,39 +194,30 @@ between the top and bottom contact."""@en ;
                                                rdfs:label "PerovskiteBSiteCation"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_6bed87e0_aa18_4b76_9c3b_7a691840fdf2
-:OWLClass_6bed87e0_aa18_4b76_9c3b_7a691840fdf2 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_8a264c74_23d0_4069_92e7_73be38f1d3d6 ;
-                                               rdfs:label "FTO"@en .
-
-
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_6bf1dadd_977b_46ea_9185_358d423dcbc7
 :OWLClass_6bf1dadd_977b_46ea_9185_358d423dcbc7 rdf:type owl:Class ;
-                                               rdfs:subClassOf emmo:EMMO_463bcfda_867b_41d9_a967_211d4d437cfb ;
+                                               rdfs:subClassOf emmo:EMMO_463bcfda_867b_41d9_a967_211d4d437cfb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom electrochemistry:EMMO_7760b241_775f_4be1_b827_59f9bde9e5b2
+                                                               ] ;
                                                rdfs:label "PhotovoltaicCellMeasurement"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_70442f2a_89f9_4cc0_b795_e5f13a1518c8
 :OWLClass_70442f2a_89f9_4cc0_b795_e5f13a1518c8 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
+                                                                 owl:someValuesFrom :OWLClass_5fb157c5_1e97_44ca_be40_4f5e07123261
+                                                               ] ;
                                                rdfs:label "HoleTransportLayer"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_7066efb9_93f2_4b31_ae78_13ec98d34414
-:OWLClass_7066efb9_93f2_4b31_ae78_13ec98d34414 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_21405a25_7c94_420f_8f3e_04a054754577 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """For the most common substrates, i.e. FTO and ITO it is common that part of the conductive
-layer is removed before perovskite deposition. State the method by which it was removed
-• If there is more than one cleaning step involved, separate the steps by a double forward angel
-bracket (‘ >> ‘)
-• This category was included after the initial project release wherefor the list of reported purities are
-short, so be prepared to expand on the given list of alternatives in the extraction protocol."""@en ;
-                                               rdfs:label "SubstrateCleaning"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_79d4a65d_714e_4136_ae60_847dd700187d
 :OWLClass_79d4a65d_714e_4136_ae60_847dd700187d rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               rdfs:subClassOf emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890 ,
+                                                               :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The effective area of the cell during IV and stability measurements under illumination. If
 measured with a mask, this corresponds to the area of the hole in the mask. Otherwise this area is the
 same as the total cell area."""@en ;
@@ -220,7 +226,11 @@ same as the total cell area."""@en ;
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f
 :OWLClass_7b6d3243_943f_4b97_89e1_3dbd31ed158f rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
+                                                                 owl:someValuesFrom :OWLClass_5fb157c5_1e97_44ca_be40_4f5e07123261
+                                                               ] ;
                                                rdfs:label "ElectronTransportLayer"@en .
 
 
@@ -256,21 +266,16 @@ same as the total cell area."""@en ;
                                                rdfs:label "BufferLayer"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_8a264c74_23d0_4069_92e7_73be38f1d3d6
-:OWLClass_8a264c74_23d0_4069_92e7_73be38f1d3d6 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_337da0a5_4259_49ca_bbdd_6ab1516a71c6 ;
-                                               rdfs:label "SubstrateEtching"@en .
-
-
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_8c5cc343_d00e_4776_9272_98edbee899af
 :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_bafc17b5_9be4_4823_8bbe_ab4e90b6738c ;
-                                               rdfs:label "IntentionalPhotovoltaicProcess"@en .
+                                               skos:prefLabel "IntentionalPhotovoltaicProcess"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_96b96541_6a1a_47d3_b602_722a53d74096
 :OWLClass_96b96541_6a1a_47d3_b602_722a53d74096 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               emmo:EMMO_f76884f7_964e_488e_9bb7_1b2453e9e817 ,
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
                                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -297,36 +302,10 @@ same as the total cell area."""@en ;
                                                rdfs:label "CellFlexibleMinBendingRadius"@en .
 
 
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a218d838_2f04_466c_8bf1_a7938925c899
-:OWLClass_a218d838_2f04_466c_8bf1_a7938925c899 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_8a264c74_23d0_4069_92e7_73be38f1d3d6 ;
-                                               rdfs:label "ITO"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a75df932_383c_453c_947e_685929ddb44c
-:OWLClass_a75df932_383c_453c_947e_685929ddb44c rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Does not discriminate between different levels of transparency. In practice this is True for any
-cell that does not have metal contacts."""@en ;
-                                               rdfs:label "SemiTransparent"@en .
-
-
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a78364e7_c10c_4cb9_8415_889b8e8e7b25
 :OWLClass_a78364e7_c10c_4cb9_8415_889b8e8e7b25 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
-                                                                 owl:someValuesFrom emmo:EMMO_c0afb341_7d31_4883_a307_ae4606df2a1b
-                                                               ] ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
-                                                                 owl:someValuesFrom :OWLClass_7066efb9_93f2_4b31_ae78_13ec98d34414
-                                                               ] ,
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty :OWLObjectProperty_d8985f55_948a_45fc_831a_2ee7f099e578 ;
-                                                                 owl:someValuesFrom :OWLClass_8a264c74_23d0_4069_92e7_73be38f1d3d6
-                                                               ] ;
-                                               rdfs:label "Substrate"@en .
+                                               rdfs:subClassOf :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29 ;
+                                               skos:prefLabel "Substrate"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a9252b86_ee06_419d_aeca_27c4e5aa0732
@@ -338,7 +317,7 @@ cell that does not have metal contacts."""@en ;
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac
 :OWLClass_a9e381cd_ecf8_4c75_a9e6_17a8b24fe3ac rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ;
-                                               rdfs:label "PhotovoltaicEncapsulant"@en .
+                                               skos:prefLabel "PhotovoltaicEncapsulant"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8
@@ -346,26 +325,31 @@ cell that does not have metal contacts."""@en ;
                                                rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ,
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                 owl:onClass emmo:EMMO_62273272_4cec_4168_bc7b_448f57feaba6
+                                                                 owl:someValuesFrom emmo:EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606
                                                                ] ,
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
                                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                  owl:onClass electrochemistry:EMMO_bea04148_10d9_4eda_9cd5_8f609d7e9ff8
                                                                ] ;
-                                               rdfs:label "Storing"@en .
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Storing is the process before or after another process. It is usually a subprocess at the end or the beginning of a process."@en ;
+                                               skos:prefLabel "Storing"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_cb8e569c_7305_4096_9b24_176c598ef798
 :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_79751276_b2d0_4e2f_bbd4_99d412f43d55 ;
-                                               rdfs:label "PhotovoltaicQuantity"@en .
+                                               skos:prefLabel "PhotovoltaicQuantity"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_d4bc60bf_ee36_408e_9613_98952a6ec45a
 :OWLClass_d4bc60bf_ee36_408e_9613_98952a6ec45a rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               rdfs:subClassOf emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890 ,
+                                                               :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
                                                emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The total area in cm 2 of the substrate over which the perovskite is deposited. This may be
 significantly larger than the cell area"""@en ;
                                                rdfs:label "SubstrateArea"@en .
@@ -375,20 +359,6 @@ significantly larger than the cell area"""@en ;
 :OWLClass_d966be85_d997_489a_995d_a20e0f99597a rdf:type owl:Class ;
                                                rdfs:subClassOf emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a ;
                                                rdfs:label "PerovskiteXSiteAnion"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e
-:OWLClass_dc31414f_45d4_40c9_a043_ef6438e6b70e rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
-                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """The number of individual solar cells, or pixels, on the substrate on which the reported cell is
-made"""@en ;
-                                               rdfs:label "NumberOfCellsPerSubstrate"@en .
-
-
-###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_dd700e46_47c7_4969_97b5_bb18c6cf9b94
-:OWLClass_dd700e46_47c7_4969_97b5_bb18c6cf9b94 rdf:type owl:Class ;
-                                               rdfs:subClassOf :OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8 ;
-                                               rdfs:label "CellStoringBeforeJVMeasurement"@en .
 
 
 ###  http://onto.onto-ns.com/domain-photovoltaics#OWLClass_e12adfae_aedc_4375_8d32_21ce9198d47e
@@ -442,14 +412,26 @@ made"""@en ;
 :PhotovoltaicCell rdf:type owl:Class ;
                   rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+                                    owl:onProperty emmo:EMMO_3c7f239f_e833_4a2b_98a1_c88831770c1b ;
+                                    owl:someValuesFrom :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
                                   ] ,
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d ;
+                                    owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass emmo:EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890
+                                    owl:onClass :OWLClass_0fde2691_80aa_49e2_92c3_9f59d845816a
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :OWLClass_79d4a65d_714e_4136_ae60_847dd700187d
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OWLDataProperty_a6bbbc11_8b31_4e15_b80e_edac90596f73 ;
+                                    owl:someValuesFrom xsd:boolean
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OWLDataProperty_e7554a3e_2977_424c_b791_ff65e0e78790 ;
+                                    owl:someValuesFrom xsd:boolean
                                   ] ;
                   emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "Something"@en ;
                   skos:altLabel "SolarCell"@en ;
@@ -474,16 +456,162 @@ made"""@en ;
                     skos:prefLabel "PhotovoltaicModule"@en .
 
 
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_1a274dcd_53f0_4e7a_bc75_b4da1c4e3aa5
+:OWLClass_1a274dcd_53f0_4e7a_bc75_b4da1c4e3aa5 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f ,
+                                                               :OWLClass_cb8e569c_7305_4096_9b24_176c598ef798 ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The concentration of the dopants/additives in an ETL layer."@en ;
+                                               skos:prefLabel "AdditiveConcentration"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_32729297_622c_4ca2_8636_8c6f412e26ae
+:OWLClass_32729297_622c_4ca2_8636_8c6f412e26ae rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606
+                                                               ] ;
+                                               skos:prefLabel "ThermalAnnealing"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_5fb157c5_1e97_44ca_be40_4f5e07123261
+:OWLClass_5fb157c5_1e97_44ca_be40_4f5e07123261 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_a4c90ba9_70da_48cd_b8db_af9ca89cfe62 ;
+                                                                 owl:someValuesFrom emmo:EMMO_ca77a260_3727_43f6_acc5_081d7e26ca6d
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_c13fa516_9dec_46b2_a511_695200e0d475
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_f4278024_aeec_47ac_b9a9_a1d1a9e8a324
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_c4bace1d_4db0_4cd3_87e9_18122bae2840 ;
+                                                                 owl:someValuesFrom :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558 ;
+                                                                 owl:someValuesFrom :OWLClass_b5164b60_7ab7_4804_aee1_4d5ba0332fb8
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558 ;
+                                                                 owl:someValuesFrom :OWLClass_32729297_622c_4ca2_8636_8c6f412e26ae
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558 ;
+                                                                 owl:someValuesFrom :OWLClass_6bd64885_9d46_427f_b666_8305634e0249
+                                                               ] ;
+                                               emmo:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a "CBD, SprayPyrolys, Evaporation, SpinCoating"@en ;
+                                               skos:prefLabel "LayerDeposition"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_6bd64885_9d46_427f_b666_8305634e0249
+:OWLClass_6bd64885_9d46_427f_b666_8305634e0249 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_8c5cc343_d00e_4776_9272_98edbee899af ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_ae2d1a96_bfa1_409a_a7d2_03d69e8a125a ;
+                                                                 owl:someValuesFrom :OWLClass_54f6c270_8d96_4cdc_87b3_3d4a4b06ce29
+                                                               ] ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 """Any type of surface treatment the sample with the finalised
+dpostion stack undergoes before the next deposition step."""@en ;
+                                               skos:prefLabel "SurfaceTreatment"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606
+:OWLClass_81a48e0c_766a_43e8_9c03_d1d9ecf78606 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_535021bf_d490_416a_9855_b918cf96c115
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_62273272_4cec_4168_bc7b_448f57feaba6
+                                                               ] ;
+                                               emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "The gas composition in which a process is executed."@en ;
+                                               skos:prefLabel "Atmosphere"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_c13fa516_9dec_46b2_a511_695200e0d475
+:OWLClass_c13fa516_9dec_46b2_a511_695200e0d475 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom emmo:EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed
+                                                               ] ;
+                                               skos:prefLabel "LayerDepostionSolution"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_f4278024_aeec_47ac_b9a9_a1d1a9e8a324
+:OWLClass_f4278024_aeec_47ac_b9a9_a1d1a9e8a324 rdf:type owl:Class ;
+                                               rdfs:subClassOf emmo:EMMO_038e37a3_1684_4980_b5e4_67ab34cd5bdb ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8e52c42b_e879_4473_9fa1_4b23428b392b ;
+                                                                 owl:someValuesFrom emmo:EMMO_21205421_5783_4d3e_81e5_10c5d894a88a
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty emmo:EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0 ;
+                                                                 owl:someValuesFrom :OWLClass_1a274dcd_53f0_4e7a_bc75_b4da1c4e3aa5
+                                                               ] ;
+                                               emmo:EMMO_b432d2d5_25f4_4165_99c5_5935a7763c1a """Li-TFSI; TBP
+FK209; Li-TFSI; TBP
+F4-TCNQ
+Undoped
+Cu | Ag; Cu"""@en ;
+                                               skos:prefLabel "Additive"@en .
+
+
+###  http://onto.onto-ns.com/domain-photovoltaics/photovoltaics#OWLClass_ff6bd309_dbd2_458d_a8af_c2484b2b1896
+:OWLClass_ff6bd309_dbd2_458d_a8af_c2484b2b1896 rdf:type owl:Class ;
+                                               rdfs:subClassOf :OWLClass_5fb157c5_1e97_44ca_be40_4f5e07123261 ;
+                                               skos:prefLabel "SpinCoating"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://onto.onto-ns.com/domain-photovoltaics#OWLNamedIndividual_26b1d589_43d2_4370_b763_a5881cbc236c
+:OWLNamedIndividual_26b1d589_43d2_4370_b763_a5881cbc236c rdf:type owl:NamedIndividual ;
+                                                         skos:prefLabel "our_substrate"@en .
+
+
 [ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -495,7 +623,13 @@ made"""@en ;
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
